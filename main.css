@@ -1,0 +1,10 @@
+img {
+  height: 400px;
+  width: 400px;
+}
+
+div#ship {
+	width: 40px;
+	height: 200px;
+	background: grey;
+}
