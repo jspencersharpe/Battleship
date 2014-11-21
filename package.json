@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/jspencersharpe/Battleship/issues"
   },
-  "homepage": "https://github.com/jspencersharpe/Battleship"
+  "homepage": "https://github.com/jspencersharpe/Battleship",
+  "devDependencies": {
+    "bower": "^1.3.12"
+  }
 }
