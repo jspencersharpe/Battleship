@@ -49,14 +49,10 @@ div.ship {
 .flip#destroyer {width: 120px; height: 40px;}
 .flip#patrol-boat {width: 80px; height: 40px;}
 
-
-
-
-/*.carrier-flip {
-  width: 40px;
-	height: 200px;
-  border-radius: 5px;
-  background: grey;
-
+.highlighted {
+  background-color: rgb(253, 247, 0);
 }
-*/
+
+.red {
+  background-color: red;
+}

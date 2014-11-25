@@ -11,11 +11,20 @@ $ship.toggleClass('flip');
 event.preventDefault()
 });
 
-//$('.targets').click(function() {
-  //td highlights yellow
-//});
-//$('#fire').click(function(){
+$('.targets').click(function(e) {
+  $('.targets').removeClass('highlighted');
+  $(this).addClass('highlighted');
+  e.stopPropagation();
+  //var choice;
+  //return choice;
+});
+
+$('#fire').click(function(e){
   //td turns red and sends message to firebase
-//});
+  //if (('highlighted') === true);  
+  $('.targets').removeClass('highlighted');
+  $(this).addClass('red');  
+  e.stopPropagation();
+});
 
 
