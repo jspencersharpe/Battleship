@@ -1,14 +1,12 @@
 $(function() { 
-    $( ".ship" ).draggable({ grid: [ 40, 40 ] });
-    $( ".ship" ).draggable({ containment: "#my-ships", scroll: false });
+    $( ".ship" ).draggable({grid: [ 40, 40 ]});
+    $( ".ship" ).draggable({ containment: ".Game-Board", scroll: false });
+    $( ".ship" ).draggable({snap: "td tr" });
 });
 
-$('div#aircraft-carrier').toggle(
-function(){
-    $( this ).addClass( "carrier-sideways" );
-},
-function(){
-    $( this ).removeClass( "carrier-sideways" );
+/*
+$('.aircraft-carrier').on('click', function(e) {
+    $( '.aircraft-carrier' ).toggleClass( "carrier-flip" );
+    //e.preventDefault()
 });
-
-
+*/

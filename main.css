@@ -1,21 +1,54 @@
-.Game-Board {
+table#my-ships {
   margin: 0;
-  height: 440px;
-  width: 440px;
+  height: 400px;
+  width: 400px;
+}
+
+td { 
+   border: 1px solid black;
+   height: 40px;
+   width: 40px;
+   margin-left: 0;
+   padding: 0;
+}
+
+div.ship {
+  display: inline-block;
+  border-radius: 5px;
+  background: grey;
+  padding-bottom: 5px;
 }
 
 div#aircraft-carrier {
 	width: 40px;
-	height: 240px;
-	background: grey;
-  border-radius: 10px;
+	height: 200px;
 }
 
-.carrier-sideways {
-	width: 240px;
-	height: 40px;
-	background: grey;
-  border-radius: 10px;
+div#battleship {
+	width: 40px;
+	height: 160px;
 }
 
+div#submarine {
+	width: 40px;
+	height: 120px;
+}
 
+div#destroyer {
+	width: 40px;
+	height: 120px;
+}
+
+div#patrol-boat {
+	width: 40px;
+	height: 80px;
+}
+
+/*.carrier-flip {
+  width: 40px;
+	height: 200px;
+  border-radius: 5px;
+  background: grey;
+
+}
+*/
