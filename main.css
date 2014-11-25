@@ -17,30 +17,26 @@ div.ship {
   border-radius: 5px;
   background: grey;
   padding-bottom: 5px;
+  width: 40px;
 }
 
 div#aircraft-carrier {
-	width: 40px;
 	height: 200px;
 }
 
 div#battleship {
-	width: 40px;
 	height: 160px;
 }
 
 div#submarine {
-	width: 40px;
 	height: 120px;
 }
 
 div#destroyer {
-	width: 40px;
 	height: 120px;
 }
 
 div#patrol-boat {
-	width: 40px;
 	height: 80px;
 }
 
