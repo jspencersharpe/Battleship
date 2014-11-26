@@ -5,26 +5,31 @@ $(function() {
     $( ".ship" ).droppable({accept: ".ship", tolerance: "touch"});
 });
 
+//Rotates ships
 $('.ship').dblclick(function(){
 var $ship = $(event.target);
 $ship.toggleClass('flip');
 event.preventDefault()
 });
 
+//Yellow Highlighting
 $('.targets').click(function(e) {
+  var $choice = $(event.target);
   $('.targets').removeClass('highlighted');
   $(this).addClass('highlighted');
   e.stopPropagation();
-  //var choice;
-  //return choice;
+      return true;
 });
 
 $('#fire').click(function(e){
-  //td turns red and sends message to firebase
-  //if (('highlighted') === true);  
-  $('.targets').removeClass('highlighted');
-  $(this).addClass('red');  
+  var $highLight = $('td').hasClass('highlighted');
+  if ($highLight === true) {
+  $('td').removeClass('highlighted');
+  $('td').focus().css("background-color", "red");
+  console.log("works");
   e.stopPropagation();
+  }
 });
 
+//filter(":selected").
 
