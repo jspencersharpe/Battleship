@@ -1,13 +1,27 @@
 var $spaces = $('#my-ships td')
 var $ship = $('.ship')
+var fireBase = ('https://spencerbattleship.firebaseio.com/')
 
 $(function() { 
-    $ship.draggable({grid: [ 44, 44 ]});
-    $ship.draggable({ containment: "#my-ships", scroll: false });
-    $ship.draggable({snap: "td tr", revert: "valid"});
-    $ship.droppable({accept: $ship, tolerance: "touch"});
-    $("th").droppable({addClasses: false});
+    $ship.draggable({
+      grid: [ 44, 44 ],
+      containment: "#my-ships",
+      snap: ('td'),
+      tolerance: "touch",
+      revert: "invalid"
     });
+    $spaces.droppable({
+      accept: $ship, 
+      revert: "valid",
+      tolerance: "touch",
+      drop: function(event, ui) {
+        var id = ui.draggable.attr('id');
+        console.log(id)
+      }
+          });
+    $("th").droppable({
+      addClasses: false});
+});
 
 //Rotates ships
 $('.ship').dblclick(function(){
@@ -35,5 +49,8 @@ $('#fire').click(function(e){
   }
 });
 
-//filter(":selected").
-
+$('#ready').click(function(){
+  $ship.draggable("destroy");
+  alert("Battle Time!")
+  $('button#ready').hide();
+});
