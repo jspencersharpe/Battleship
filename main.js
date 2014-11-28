@@ -2,6 +2,7 @@ var $spaces = $('#my-ships td')
 var $ship = $('.ship')
 var fireBase = ('https://spencerbattleship.firebaseio.com/')
 
+//draggable and droppable
 $(function() { 
     $ship.draggable({
       grid: [ 44, 44 ],
@@ -48,9 +49,10 @@ $('#fire').click(function(e){
   e.stopPropagation();
   }
 });
-
+s
+//disables draggable
 $('#ready').click(function(){
-  $ship.draggable("destroy");
+  $ship.draggable("destroy"); 
   alert("Battle Time!")
   $('button#ready').hide();
 });
