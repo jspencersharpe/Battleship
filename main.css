@@ -10,8 +10,13 @@ table#my-guesses {
   border-spacing: 0;
 }
 
-th {
-  font-size: 50%;
+#my-ships th {
+  display: none;
+}
+
+#my-ships th td {
+  height: 40px;
+  width: 40px;
 }
 
 button#fire {
@@ -22,9 +27,12 @@ button#fire {
   background-color: rgb(179, 0, 0);
 }
 
-td { 
+#my-ships td, #my-guesses td { 
    border: 1px solid black;
-   max-height: 40px;
+}
+
+#my-ships td {
+   height: 40px;
    width: 40px;
 }
 
