@@ -7,17 +7,19 @@ $(function() {
     $ship.draggable({
       grid: [ 44, 44 ],
       containment: "#my-ships",
-      snap: ('td'),
+      snap: 'td',
+      snapMode: "inner",
       tolerance: "touch",
-      revert: "invalid"
+      revert: "invalid",
     });
     $spaces.droppable({
       accept: $ship, 
-      revert: "valid",
+      //revert: "valid",
+      greedy: true,
       tolerance: "touch",
       drop: function(event, ui) {
-        var id = ui.draggable.attr('id');
-        console.log(id)
+        var getID = event.target.id;
+        console.log(getID);
       }
           });
     $("th").droppable({
@@ -33,23 +35,27 @@ event.preventDefault()
 
 //Yellow Highlighting
 $('.targets').click(function(e) {
-  var $choice = $(event.target);
+  //var $choice = $(this).get(0).id;
+  var $choice = $(this).attr('id');
   $('.targets').removeClass('highlighted');
   $(this).addClass('highlighted');
   e.stopPropagation();
+  console.log($choice);
       return $choice;
 });
+
 
 $('#fire').click(function(e){
   var $highLight = $('td').hasClass('highlighted');
   if ($highLight === true) {
   $('td').removeClass('highlighted');
+  //$('td').removeClass('red');
   $('.target:selected').addClass('red');
-  console.log("works");
   e.stopPropagation();
   }
+
 });
-s
+
 //disables draggable
 $('#ready').click(function(){
   $ship.draggable("destroy"); 
