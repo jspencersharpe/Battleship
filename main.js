@@ -1,6 +1,6 @@
-var $spaces = $('#my-ships td')
-var $ship = $('.ship')
-var fireBase = ('https://spencerbattleship.firebaseio.com/')
+var $spaces = $('#my-ships td');
+var $ship = $('.ship');
+var fireBase = ('https://spencerbattleship.firebaseio.com/');
 
 //draggable and droppable
 $(function() { 
@@ -8,13 +8,12 @@ $(function() {
       grid: [ 44, 44 ],
       containment: "#my-ships",
       snap: 'td',
-      snapMode: "inner",
+      snapTolerance: "inner",
       tolerance: "touch",
       revert: "invalid",
     });
     $spaces.droppable({
       accept: $ship, 
-      //revert: "valid",
       greedy: true,
       tolerance: "touch",
       drop: function(event, ui) {
@@ -35,7 +34,6 @@ event.preventDefault()
 
 //Yellow Highlighting
 $('.targets').click(function(e) {
-  //var $choice = $(this).get(0).id;
   var $choice = $(this).attr('id');
   $('.targets').removeClass('highlighted');
   $(this).addClass('highlighted');
@@ -44,16 +42,12 @@ $('.targets').click(function(e) {
       return $choice;
 });
 
-
 $('#fire').click(function(e){
   var $highLight = $('td').hasClass('highlighted');
   if ($highLight === true) {
   $('td').removeClass('highlighted');
-  //$('td').removeClass('red');
-  $('.target:selected').addClass('red');
   e.stopPropagation();
   }
-
 });
 
 //disables draggable
