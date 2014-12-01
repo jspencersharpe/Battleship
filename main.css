@@ -1,25 +1,31 @@
-table#my-ships {
+div#whole-page {
+  -webkit-columns: 500px 2;
+   -moz-columns: 500px 2;
+        columns: 500px 2;
+}
+
+table#my-ships table#enemy-guesses  {
   height: 440px;
   max-width: 440px;
   border-spacing: 0;
 }
 
-table#my-guesses {
+table#my-guesses, table#enemy-guesses {
   height: 200px;
   width: 200px;
   border-spacing: 0;
 }
 
-#my-ships th {
+#my-ships th, #enemy-ships th {
   display: none;
 }
 
-#my-ships th td {
+#my-ships th td, #enemy-ships th td {
   height: 40px;
   width: 40px;
 }
 
-button#fire {
+button#fire, button#enemy-fire {
   width: 150px;
   height: 50px;
   color: black;
@@ -27,7 +33,7 @@ button#fire {
   background-color: rgb(179, 0, 0);
 }
 
-button#ready {
+button#ready, button#enemy-ready {
   width: 250px;
   height: 50px;
   color: black;
@@ -39,16 +45,16 @@ div#buttons {
   display: inline-block;
 }
 
-#my-ships td, #my-guesses td { 
+#my-ships td, #my-guesses td, #enemy-ships td, #enemy-guesses td { 
    border: 1px solid black;
 }
 
-#my-ships td {
+#my-ships td, #enemy-ships td {
    height: 40px;
    width: 40px;
 }
 
-div.ship {
+div.ship, div.enemy-ship {
   display: inline-block;
   border-radius: 5px;
   background: grey;
@@ -69,10 +75,20 @@ div.ship {
 .flip#destroyer {width: 120px; height: 40px;}
 .flip#patrol-boat {width: 80px; height: 40px;}
 
+#aircraft-carrier2 {height: 200px;}
+#battleship2 {height: 160px;}
+#submarine2 {height: 120px;}
+#destroyer2 {height: 120px;}
+#patrol-boat2 {height: 80px;}
+.flip#aircraft-carrier2 {width: 200px; height: 40px;}
+.flip#battleship2 {width: 160px; height: 40px;}
+.flip#submarine2 {width: 120px; height: 40px;}
+.flip#destroyer2 {width: 120px; height: 40px;}
+.flip#patrol-boat2 {width: 80px; height: 40px;}
+
+
 .highlighted {
   background-color: rgb(253, 247, 0);
 }
 
-.red {
-  background-color: red;
-}
+

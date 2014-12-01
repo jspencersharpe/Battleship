@@ -1,6 +1,9 @@
+//my activity
+
 var $spaces = $('#my-ships td');
 var $ship = $('.ship');
 var fireBase = ('https://spencerbattleship.firebaseio.com/');
+var shipPlacements = [];
 
 //draggable and droppable
 $(function() { 
@@ -18,7 +21,7 @@ $(function() {
       tolerance: "touch",
       drop: function(event, ui) {
         var getID = event.target.id;
-        console.log(getID);
+        shipPlacements.push(getID);
       }
           });
     $("th").droppable({
@@ -39,15 +42,15 @@ $('.targets').click(function(e) {
   $(this).addClass('highlighted');
   e.stopPropagation();
   console.log($choice);
-      return $choice;
-});
-
-$('#fire').click(function(e){
-  var $highLight = $('td').hasClass('highlighted');
-  if ($highLight === true) {
-  $('td').removeClass('highlighted');
-  e.stopPropagation();
-  }
+  
+  $('#fire').click(function(checkForHit) {
+    var checkForHit = shipPlacements.indexOf($choice);
+      if (checkForHit != -1) {
+          console.log("Hit!");
+      } else {
+          console.log("Miss!");
+      }
+  });
 });
 
 //disables draggable
@@ -56,3 +59,68 @@ $('#ready').click(function(){
   alert("Battle Time!")
   $('button#ready').hide();
 });
+
+
+//////////////////////////////////
+///////ENEMY ACTIVITY/////////////
+//////////////////////////////////
+
+var $spaces2 = $('#enemy-ships td');
+var $enemyShip = $('.enemy-ship');
+var enemyShipPlacements = [];
+
+//draggable and droppable
+$(function() { 
+    $enemyShip.draggable({
+      grid: [ 44, 44 ],
+      containment: "#enemy-ships",
+      snap: 'td',
+      snapTolerance: "inner",
+      tolerance: "touch",
+      revert: "invalid",
+    });
+    $spaces2.droppable({
+      accept: $enemyShip, 
+      greedy: true,
+      tolerance: "touch",
+      drop: function(event, ui) {
+        var getID = event.target.id;
+        enemyShipPlacements.push(getID);
+      }
+          });
+    $("th").droppable({
+      addClasses: false});
+});
+
+//Rotates ships
+$('.enemy-ship').dblclick(function(){
+var $ship2 = $(event.target);
+$ship2.toggleClass('flip');
+event.preventDefault()
+});
+
+//Yellow Highlighting
+$('.me-target').click(function(e) {
+  var $enemyChoice = $(this).attr('id');
+  $('.me-target').removeClass('highlighted');
+  $(this).addClass('highlighted');
+  e.stopPropagation();
+  console.log($enemyChoice);
+  
+  $('#enemy-fire').click(function(checkForHit2) {
+    var checkForHit2 = enemyShipPlacements.indexOf($enemyChoice);
+      if (checkForHit2 != -1) {
+          console.log("Hit!");
+      } else {
+          console.log("Miss!");
+      }
+  });
+});
+
+//disables draggable
+$('#enemy-ready').click(function(){
+  $enemyShip.draggable("destroy"); 
+  alert("Battle Time!")
+  $('button#ready').hide();
+});
+
