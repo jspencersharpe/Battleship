@@ -44,7 +44,7 @@ $('.targets').click(function(e) {
   console.log($choice);
   
   $('#fire').click(function(checkForHit) {
-    var checkForHit = shipPlacements.indexOf($choice);
+    var checkForHit = shipPlacements._contains($choice);
       if (checkForHit != -1) {
           console.log("Hit!");
       } else {
@@ -121,6 +121,6 @@ $('.me-target').click(function(e) {
 $('#enemy-ready').click(function(){
   $enemyShip.draggable("destroy"); 
   alert("Battle Time!")
-  $('button#ready').hide();
+  $('button#enemy-ready').hide();
 });
 
