@@ -4,6 +4,9 @@ var $spaces = $('#my-ships td');
 var $ship = $('.ship');
 var fireBase = ('https://spencerbattleship.firebaseio.com/');
 var shipPlacements = [];
+var $spaces2 = $('#enemy-ships td');
+var $enemyShip = $('.enemy-ship');
+var enemyShipPlacements = [];
 
 //draggable and droppable
 $(function() { 
@@ -23,7 +26,7 @@ $(function() {
         var getID = event.target.id;
         shipPlacements.push(getID);
       }
-          });
+    });
     $("th").droppable({
       addClasses: false});
 });
@@ -44,7 +47,7 @@ $('.targets').click(function(e) {
   console.log($choice);
   
   $('#fire').click(function(checkForHit) {
-    var checkForHit = shipPlacements._contains($choice);
+    var checkForHit = enemyShipPlacements.indexOf($choice);
       if (checkForHit != -1) {
           console.log("Hit!");
       } else {
@@ -65,9 +68,6 @@ $('#ready').click(function(){
 ///////ENEMY ACTIVITY/////////////
 //////////////////////////////////
 
-var $spaces2 = $('#enemy-ships td');
-var $enemyShip = $('.enemy-ship');
-var enemyShipPlacements = [];
 
 //draggable and droppable
 $(function() { 
@@ -108,7 +108,7 @@ $('.me-target').click(function(e) {
   console.log($enemyChoice);
   
   $('#enemy-fire').click(function(checkForHit2) {
-    var checkForHit2 = enemyShipPlacements.indexOf($enemyChoice);
+    var checkForHit2 = shipPlacements.indexOf($enemyChoice);
       if (checkForHit2 != -1) {
           console.log("Hit!");
       } else {

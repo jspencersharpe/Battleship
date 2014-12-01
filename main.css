@@ -91,4 +91,6 @@ div.ship, div.enemy-ship {
   background-color: rgb(253, 247, 0);
 }
 
-
+.red {
+  background-color: red;
+}
